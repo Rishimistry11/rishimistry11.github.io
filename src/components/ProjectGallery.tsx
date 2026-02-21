@@ -9,10 +9,32 @@ type MediaItem = {
 };
 
 const placeholderMedia: MediaItem[] = [
-  { type: "image", src: "/placeholder.svg", caption: "Project photo — replace with your image" },
-  { type: "image", src: "/placeholder.svg", caption: "Project photo — replace with your image" },
-  { type: "image", src: "/placeholder.svg", caption: "Project photo — replace with your image" },
-  { type: "video", src: "", caption: "Project video — replace with your video" },
+  { type: "video", src: "/videos/API_Stepper_Motor_Controller.mp4", caption: "API Stepper Motor Controller" },
+  { type: "video", src: "/videos/Brix.mp4", caption: "Brix" },
+  { type: "video", src: "/videos/DU_9_Towers.mp4", caption: "DU 9 Towers" },
+  { type: "video", src: "/videos/Face_Recognasition_System.mp4", caption: "Face Recognition System" },
+  { type: "video", src: "/videos/Interactive_Globe.mp4", caption: "Interactive Globe" },
+  { type: "video", src: "/videos/Interactive_map.mp4", caption: "Interactive Map" },
+  { type: "video", src: "/videos/Interactive_Telescope.mp4", caption: "Interactive Telescope" },
+  { type: "video", src: "/videos/Kinetic_Screen.mp4", caption: "Kinetic Screen" },
+  { type: "video", src: "/videos/Kinetic_Tubes.mp4", caption: "Kinetic Tubes" },
+  { type: "video", src: "/videos/Sliding_Door.mp4", caption: "Sliding Door" },
+  { type: "video", src: "/videos/PDP_Wall_KSA.MP4", caption: "PDP Wall KSA" },
+  { type: "video", src: "/videos/Transparent_Rotating_door & Volumtric.mp4", caption: "Transparent Rotating Door & Volumetric" },
+  { type: "video", src: "/videos/Video_Trigger_Cube & Globe.mp4", caption: "Video Trigger Cube & Globe" },
+  { type: "video", src: "/videos/Video_trigger_cube.mp4", caption: "Video Trigger Cube" },
+  { type: "video", src: "/videos/Volumatric.mp4", caption: "Volumetric" },
+  { type: "video", src: "/videos/Water_LED.mp4", caption: "Water LED" },
+  { type: "video", src: "/videos/Websocket.mp4", caption: "Websocket" },
+  { type: "video", src: "/videos/20230918_134846_IMG_3003.MOV", caption: "Project Documentation" },
+  { type: "video", src: "/videos/37_Rotating_Tower.MOV", caption: "37 Rotating Tower" },
+  { type: "video", src: "/videos/honeycomb.MOV", caption: "Honeycomb" },
+  { type: "video", src: "/videos/Interactive_Screen (1).MOV", caption: "Interactive Screen" },
+  { type: "video", src: "/videos/Kinetic_Tube.MOV", caption: "Kinetic Tube" },
+  { type: "video", src: "/videos/LED_Strip.MOV", caption: "LED Strip" },
+  { type: "video", src: "/videos/Lift & Learn_Teachnology.MOV", caption: "Lift & Learn Technology" },
+  { type: "video", src: "/videos/Touchdesigner_interactive_particle_system.MOV", caption: "TouchDesigner Interactive Particle System" },
+  { type: "video", src: "/videos/Touchdesiner_Interactive.MOV", caption: "TouchDesigner Interactive" },
 ];
 
 const ProjectGallery = () => {
@@ -67,9 +89,17 @@ const ProjectGallery = () => {
                   loading="lazy"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center bg-secondary/50">
-                  <Film size={48} className="text-muted-foreground" />
-                </div>
+                <video
+                  src={item.src}
+                  className="w-full h-full object-cover"
+                  muted
+                  playsInline
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.pause();
+                    e.currentTarget.currentTime = 0;
+                  }}
+                />
               )}
               <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <div className="flex items-center gap-2 text-primary text-sm font-mono">
@@ -119,11 +149,14 @@ const ProjectGallery = () => {
                   className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
                 />
               ) : (
-                <div className="aspect-video bg-card rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground font-mono text-sm">
-                    Replace this with your video file or embed URL
-                  </p>
-                </div>
+                <video
+                  src={selectedMedia.src}
+                  controls
+                  autoPlay
+                  className="w-full h-auto max-h-[80vh] rounded-lg"
+                >
+                  Your browser does not support the video tag.
+                </video>
               )}
               {selectedMedia.caption && (
                 <p className="text-sm text-muted-foreground mt-4 text-center">{selectedMedia.caption}</p>
