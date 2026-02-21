@@ -1,12 +1,10 @@
-# PR: Fix Rollup module error in GitHub Actions deploy workflow
-
 ## 🐛 Bug Fix: Rollup Module Error in GitHub Actions
 
 ### Problem
 The GitHub Actions workflow was failing during the build step with the following error:
 ```
 Error: Cannot find module @rollup/rollup-linux-x64-gnu. 
-npm has a bug related to optional dependencies.
+ npm has a bug related to optional dependencies.
 ```
 
 **Failing Job:** https://github.com/Rishimistry11/rishimistry11.github.io/actions/runs/22256033818/job/64387013577
