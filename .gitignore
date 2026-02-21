@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Video compression scripts
+compress-videos.bat
+compress-videos.ps1
+
+# Original large videos (use compressed versions)
+public/videos/
